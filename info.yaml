@@ -1,56 +1,59 @@
 # Tiny Tapeout project information
 project:
-  title:        ""      # Project title
-  author:       ""      # Your name
+  title:        "TinyTapeout Traffic Light Controller"
+  author:       "adaptableCoder"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
+  description:  "Simple traffic light controller using a 1s timebase"
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  clock_hz:     50000000       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? A single tile is about 167x108 uM.
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_example"
+
+  top_module:  "tt_um_adaptableCoder"
 
   # List your project's source files here.
   # Source files must be in ./src and you must list each source file separately, one per line.
   # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:
-    - "project.v"
+    - "tt_um_adaptableCoder.v"
+    - "timebase_1s.v"
+    - "traffic_light_controller.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
-  # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+  # Inputs (green duration bits)
+  ui[0]: "green_duration[0]"
+  ui[1]: "green_duration[1]"
+  ui[2]: "green_duration[2]"
+  ui[3]: "green_duration[3]"
+  ui[4]: "green_duration[4]"
+  ui[5]: "green_duration[5]"
+  ui[6]: "green_duration[6]"
+  ui[7]: "green_duration[7]"
 
   # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
+  uo[0]: "ns_red"
+  uo[1]: "ns_yellow"
+  uo[2]: "ns_green"
+  uo[3]: "ew_red"
+  uo[4]: "ew_yellow"
+  uo[5]: "ew_green"
   uo[6]: ""
   uo[7]: ""
 
   # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  uio[0]: "yellow_duration[0]"
+  uio[1]: "yellow_duration[1]"
+  uio[2]: "yellow_duration[2]"
+  uio[3]: "yellow_duration[3]"
+  uio[4]: "yellow_duration[4]"
+  uio[5]: "yellow_duration[5]"
+  uio[6]: "yellow_duration[6]"
+  uio[7]: "yellow_duration[7]"
 
 # Do not change!
 yaml_version: 6
